@@ -1,18 +1,16 @@
 import csv
+import pandas as pd
 import numpy as np
 
 def main():
-    elements_trans = []
-    with open('../data/filtered_data.csv', newline= '') as csvfile:
-        reader = csv.reader(csvfile)
+    df = pd.read_csv('../data/filtered_data.csv')
 
-        elements = list(reader)
-        elements_trans =   list(map(list, zip(*elements)))
+    df_trans = df.transpose()
 
     with open('../data/transposed_data.csv', 'w', newline= '') as csvfile2:
         writer = csv.writer(csvfile2, quoting=csv.QUOTE_MINIMAL)
 
-        for row in elements_trans:
+        for row in df_trans.values:
             writer.writerow(row)
 
 if __name__ == "__main__":

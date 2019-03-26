@@ -9,8 +9,7 @@ def main():
         reader = csv.reader(csvfile)
         next(reader)
         for row in reader:
-            row.pop(0)
-            if len(list(filter(lambda x: x != '0', list(row)))) != 0:
+            if len(list(filter(lambda x: x != '0', list(row)))) > 1:
                 filtered.append(row)
     with open('../data/filtered_data.csv', 'w', newline= '') as csvfile2:
         writer = csv.writer(csvfile2, quoting=csv.QUOTE_MINIMAL)
