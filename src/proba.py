@@ -1,6 +1,4 @@
-import csv
+import pandas as pd
 
-with open('../data/transposed_data.csv', newline= '') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-        print(row)
+df = pd.read_csv('../data/010_Pericytes_or_pericyte-derived_induced_neuronal_cells_csv.csv')
+print(df.shape)
