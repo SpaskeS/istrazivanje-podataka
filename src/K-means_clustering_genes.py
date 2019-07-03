@@ -41,7 +41,7 @@ def main():
         clusters[cluster_num].append(genes[i])
 
     for i in clusters:
-        print("Cluster {}: ". format(i), len(clusters[i]), "\n")
+        print("Cluster {}: ".format(i), len(clusters[i]), "\n")
 
 if __name__ == "__main__":
     main()
