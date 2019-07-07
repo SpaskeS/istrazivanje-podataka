@@ -8,6 +8,7 @@ def main():
 
     genes = df.iloc[:, 0].values
     data = df.iloc[:, 1:]
+    print(data)
     clusters = {}
 
     if (len(sys.argv) == 2 and sys.argv[1] == 'default'):
