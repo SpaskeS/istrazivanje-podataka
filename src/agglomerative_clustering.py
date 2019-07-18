@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 import sys
+import joblib
 
 def main():
     if len(sys.argv) < 2:
@@ -25,6 +26,8 @@ def main():
     clusters = {}
     mdl = AgglomerativeClustering(n_clusters=n_clust, affinity="euclidean", \
                                     linkage=link).fit(data)
+
+    joblib.dump(mdl, '../models/agglomerative_{}.joblib'.format(sys.argv[1]))
 
     for i in range(data.shape[0]):
         cluster_num = mdl.labels_[i]

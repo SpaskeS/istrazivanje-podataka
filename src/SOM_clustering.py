@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 import pandas as pd
 import math
+import joblib
 
 def main():
     if len(sys.argv) != 2:
@@ -24,6 +25,7 @@ def main():
     mdl.random_weights_init(data)
     mdl.train_random(data, 100)
     # mdl.train_batch(data, 100)
+    joblib.dump(mdl, '../models/SOM_{}.joblib'.format(sys.argv[1]))
 
     plt.pcolor(mdl.distance_map().T)
     if sys.argv[1] == 'genes':
